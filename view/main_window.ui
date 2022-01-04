@@ -51,6 +51,13 @@
        </widget>
       </item>
       <item>
+       <widget class="QPushButton" name="novo_colab_btn">
+        <property name="text">
+         <string>Novo colaborador</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QPushButton" name="colab_btn">
         <property name="text">
          <string>Colaboradores</string>

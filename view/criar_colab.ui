@@ -92,7 +92,7 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
-      <widget class="QPushButton" name="cancelar_btn">
+      <widget class="QPushButton" name="cancelar">
        <property name="text">
         <string>Cancelar</string>
        </property>
@@ -112,7 +112,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="salvar_btn">
+      <widget class="QPushButton" name="salvar">
        <property name="text">
         <string>Salvar</string>
        </property>

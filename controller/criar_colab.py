@@ -2,9 +2,9 @@ from qt_core import *
 from model.colaborador import Colaboradores
 from model.colab_dao import *
 class CriarColab(QWidget):
-    def __init__(self, mainWindow):
+    def __init__(self, mainWindow, colaborador=None):
         super().__init__()
-        uic.loadUi('view/criar_colab.ui')
+        uic.loadUi('view/criar_colab.ui', self)
         self.mainWindow = mainWindow
 
 

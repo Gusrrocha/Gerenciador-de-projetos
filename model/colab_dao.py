@@ -21,4 +21,30 @@ def add(colaborador):
 def edit(colaborador):
     pass
 def delete(id):
-    pass
+    try:
+        conn = dbase.connect()
+        cursor = conn.cursor()
+        sql = """DELETE FROM Colaboradores WHERE id = ?"""
+        cursor.execute(sql, [id])
+        conn.commit()
+    except Exception as e:
+        print(e)
+    finally:
+        conn.close()
+
+def selectAll():
+    lista = []
+    try:
+        conn = dbase.connect()
+        cursor = conn.cursor()
+        sql = """SELECT * FROM Colaboradores ORDER BY upper(nome)"""
+        cursor.execute(sql)
+        result = cursor.fetchall()
+        for c in result:
+            novo_colab = Colaboradores(c[0],c[1],c[2])
+            lista.append(novo_colab)
+    except Exception as e:
+        print(e)
+    finally:
+        conn.close()
+    return lista
