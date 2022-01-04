@@ -18,4 +18,4 @@ class CardColab(QWidget):
         self.mainWindow.show_colab()
 
     def mousePressEvent(self, event):
-        self.mainWindow.show_criar_colaborador(self.colaborador)
+        self.mainWindow.show_criar_colab(self.colaborador)

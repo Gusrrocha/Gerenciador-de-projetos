@@ -19,7 +19,19 @@ def add(colaborador):
         conn.close()
 
 def edit(colaborador):
-    pass
+    try:
+        conn = dbase.connect()
+        cursor = conn.cursor()
+        sql = """UPDATE Colaboradores SET nome=?, email=?; WHERE id=?"""
+        l = colaborador.getColab()
+        l.append(colaborador.id)
+        cursor.execute(sql, l)
+        conn.commit()
+    except Exception as e:
+        print(e)
+    finally:
+        conn.close()
+
 def delete(id):
     try:
         conn = dbase.connect()
