@@ -3,3 +3,6 @@ class Colaboradores():
         self.id = id
         self.nome = nome
         self.email = email
+
+    def getColab(self):
+        return [self.nome, self.email]
