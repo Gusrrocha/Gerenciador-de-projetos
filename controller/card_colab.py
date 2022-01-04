@@ -15,7 +15,7 @@ class CardColab(QWidget):
 
     def excluir(self):
         colab_dao.delete(self.colaborador.id)
-        self.mainWindow.show_colab_page()
+        self.mainWindow.show_colab()
 
     def mousePressEvent(self, event):
         self.mainWindow.show_criar_colaborador(self.colaborador)
