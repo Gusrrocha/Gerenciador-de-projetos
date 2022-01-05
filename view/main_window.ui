@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>889</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -47,13 +47,6 @@
        <widget class="QPushButton" name="novo_projeto_btn">
         <property name="text">
          <string>Novo Projeto</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="novo_colab_btn">
-        <property name="text">
-         <string>Novo colaborador</string>
         </property>
        </widget>
       </item>

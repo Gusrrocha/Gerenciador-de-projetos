@@ -22,7 +22,7 @@ def edit(colaborador):
     try:
         conn = dbase.connect()
         cursor = conn.cursor()
-        sql = """UPDATE Colaboradores SET nome=?, email=?; WHERE id=?"""
+        sql = """UPDATE Colaboradores SET nome=?,email=? WHERE id=?;"""
         l = colaborador.getColab()
         l.append(colaborador.id)
         cursor.execute(sql, l)
