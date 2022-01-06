@@ -1,3 +1,4 @@
+from controller.criar_projeto import AddProject
 from controller.projeto import ProjetosPage
 from qt_core import *
 from controller.colab_page import ColabPage
@@ -20,4 +21,5 @@ class MainWindow(QMainWindow):
         self.tabela.setCurrentIndex(0)
 
     def show_addproject(self):
-        self.tabela.insertWidget(2, )
+        self.tabela.insertWidget(2, AddProject())
+        self.tabela.setCurrentIndex(2)

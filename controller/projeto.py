@@ -16,4 +16,4 @@ class ProjetosPage(QWidget):
         for p in l:
             self.painel_colab.addWidget(CardProject(p, self.mainWindow))
     def novo_projeto(self):
-        self.mainWindow.setCurrentIndex(2)
+        self.mainWindow.show_addproject()
