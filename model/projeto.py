@@ -4,3 +4,5 @@ class Projetos():
         self.nome = nome
         self.descricao = descricao
         
+    def getPj(self):
+        return [self.nome, self.descricao]
