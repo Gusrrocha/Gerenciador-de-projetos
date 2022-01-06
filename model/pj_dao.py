@@ -52,9 +52,9 @@ def selectAll():
         sql = """SELECT * FROM Projetos ORDER BY upper(nome)"""
         cursor.execute(sql)
         result = cursor.fetchall()
-        for c in result:
-            novo_colab = Projetos(c[0],c[1],c[2])
-            lista.append(novo_colab)
+        for p in result:
+            novo_pj = Projetos(p[0],p[1],p[2])
+            lista.append(novo_pj)
     except Exception as e:
         print(e)
     finally:
