@@ -53,8 +53,8 @@ def selectAll():
         cursor.execute(sql)
         result = cursor.fetchall()
         for p in result:
-            novo_pj = Projetos(p[0],p[1],p[2])
-            lista.append(novo_pj)
+            novo_prj = Projetos(p[0],p[1],p[2])
+            lista.append(novo_prj)
     except Exception as e:
         print(e)
     finally:

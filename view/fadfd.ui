@@ -1,255 +1,190 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1030</width>
-    <height>835</height>
+    <width>1085</width>
+    <height>658</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Gerenciador de Projetos</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_5">
-   <property name="bottomMargin">
-    <number>0</number>
-   </property>
-   <item>
-    <layout class="QVBoxLayout" name="verticalLayout_3">
-     <item>
-      <widget class="QLabel" name="nomeDoProjetoLabel">
-       <property name="text">
-        <string>Nome do projeto</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="nome_projeto"/>
-     </item>
-     <item>
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Descrição</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="desc_projeto"/>
-     </item>
-    </layout>
-   </item>
-   <item>
-    <widget class="QFrame" name="frame">
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout">
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <property name="leftMargin">
+     <number>15</number>
+    </property>
+    <property name="topMargin">
+     <number>15</number>
+    </property>
+    <property name="rightMargin">
+     <number>15</number>
+    </property>
+    <property name="bottomMargin">
+     <number>9</number>
+    </property>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QLineEdit" name="nome_tarefa">
-        <property name="toolTip">
-         <string/>
+       <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+          <bold>true</bold>
+         </font>
         </property>
-        <property name="statusTip">
-         <string/>
-        </property>
-        <property name="placeholderText">
-         <string>Adicione nova tarefa no topo da lista</string>
+        <property name="text">
+         <string>Gerenciador 
+de Projetos</string>
         </property>
        </widget>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="proj_pb">
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Projetos</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="colab_pb">
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Colaboradores</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="Line" name="line">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <widget class="QWidget" name="page">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
         <item>
-         <widget class="QGroupBox" name="groupBox_2">
+         <widget class="QGroupBox" name="groupBox">
           <property name="title">
-           <string>Colaboradores</string>
+           <string>Projetos</string>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout_6">
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+          <property name="checkable">
+           <bool>false</bool>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout">
            <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <layout class="QHBoxLayout" name="horizontalLayout">
              <item>
-              <widget class="QComboBox" name="colab_comboBox">
-               <property name="minimumSize">
-                <size>
-                 <width>100</width>
-                 <height>0</height>
-                </size>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="add_colab_pb">
-               <property name="maximumSize">
-                <size>
-                 <width>30</width>
-                 <height>25</height>
-                </size>
-               </property>
-               <property name="toolTip">
-                <string>Adicionar colaborador</string>
-               </property>
-               <property name="statusTip">
-                <string/>
-               </property>
+              <widget class="QPushButton" name="novo_proj_pb">
                <property name="text">
-                <string>&gt;&gt;</string>
+                <string>Novo Projeto</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="remove_colab_pb">
-               <property name="maximumSize">
+              <spacer name="horizontalSpacer">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
                 <size>
-                 <width>30</width>
-                 <height>25</height>
+                 <width>40</width>
+                 <height>20</height>
                 </size>
                </property>
-               <property name="toolTip">
-                <string>Remover colaborador</string>
-               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="checkBox">
                <property name="text">
-                <string>&lt;&lt;</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QComboBox" name="colab_add_comboBox">
-               <property name="minimumSize">
-                <size>
-                 <width>100</width>
-                 <height>0</height>
-                </size>
+                <string>Mostar projetos concluídos</string>
                </property>
               </widget>
              </item>
             </layout>
            </item>
            <item>
-            <widget class="QLabel" name="qtd_colab_label">
-             <property name="text">
-              <string>Colaboradores alocados: 0</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="QGroupBox" name="groupBox">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="title">
-           <string>Status</string>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_7">
-           <item>
-            <widget class="QRadioButton" name="pendente_rb">
-             <property name="text">
-              <string>Pendente</string>
-             </property>
-             <property name="checked">
+            <widget class="QScrollArea" name="scrollArea">
+             <property name="widgetResizable">
               <bool>true</bool>
              </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="concluida_rb">
-             <property name="text">
-              <string>Concluída</string>
-             </property>
+             <widget class="QWidget" name="scrollAreaWidgetContents">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>1029</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_5">
+               <item>
+                <layout class="QVBoxLayout" name="layout_projetos">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                </layout>
+               </item>
+              </layout>
+             </widget>
             </widget>
            </item>
           </layout>
          </widget>
         </item>
        </layout>
-      </item>
-      <item>
-       <widget class="QPushButton" name="nova_tarefa_pb">
-        <property name="text">
-         <string>Criar nova tarefa</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QGroupBox" name="groupBox_3">
-     <property name="title">
-      <string>Lista de Tarefas</string>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <item>
-       <widget class="QScrollArea" name="scrollArea">
-        <property name="widgetResizable">
-         <bool>true</bool>
-        </property>
-        <widget class="QWidget" name="scrollAreaWidgetContents">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>986</width>
-           <height>440</height>
-          </rect>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_4">
-          <item>
-           <layout class="QVBoxLayout" name="tarefas_layout"/>
-          </item>
-         </layout>
-        </widget>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="excluir_pb">
-       <property name="text">
-        <string>Excluir</string>
-       </property>
       </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="salvar_pb">
-       <property name="text">
-        <string>Salvar</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-  </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
  </widget>
  <resources/>
  <connections/>

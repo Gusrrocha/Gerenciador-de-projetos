@@ -14,7 +14,7 @@ class CardProject(QWidget):
         self.waste_btn.clicked.connect(self.waste_pj)
    
     def mousePressEvent(self, event):
-        self.mainWindow.show_addproject(self.projeto)
+        self.mainWindow.novo_projeto(self.projeto)
 
     def waste_pj(self):
         del_pj(self.projeto.id)
