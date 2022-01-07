@@ -10,10 +10,10 @@ class CardProject(QWidget):
         self.nome.setText(projeto.nome)
         self.descricao.setText(projeto.descricao)
 
-        self.edit_btn.clicked.connect(self.edit_pj)
+        self.edit_btn.clicked.connect(self.mousePressEvent)
         self.waste_btn.clicked.connect(self.waste_pj)
    
-    def edit_pj(self, event):
+    def mousePressEvent(self, event):
         self.mainWindow.show_addproject(self.projeto)
 
     def waste_pj(self):

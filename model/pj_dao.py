@@ -22,8 +22,8 @@ def edit_pj(projeto):
     try:
         conn = dbase.connect()
         cursor = conn.cursor()
-        sql = """UPDATE Projetos SET nome=?,email=? WHERE id=?;"""
-        p = projeto.getColab()
+        sql = """UPDATE Projetos SET nome=?, descricao=? WHERE id=?;"""
+        p = projeto.getPj()
         p.append(projeto.id)
         cursor.execute(sql, p)
         conn.commit()
@@ -36,7 +36,7 @@ def del_pj(id):
     try:
         conn = dbase.connect()
         cursor = conn.cursor()
-        sql = """DELETE FROM Projetos WHERE id=?"""
+        sql = """DELETE FROM Projetos WHERE id = ?"""
         cursor.execute(sql, [id])
         conn.commit()
     except Exception as e:

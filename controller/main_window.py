@@ -20,6 +20,6 @@ class MainWindow(QMainWindow):
         self.tabela.insertWidget(0, ProjetosPage(self))
         self.tabela.setCurrentIndex(0)
 
-    def show_addproject(self):
-        self.tabela.insertWidget(2, AddProject())
+    def show_addproject(self, projeto=None):
+        self.tabela.insertWidget(2, AddProject(self, projeto))
         self.tabela.setCurrentIndex(2)
