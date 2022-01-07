@@ -5,3 +5,6 @@ class Tarefas():
         self.descricao = descricao
         self.status = status
         self.lista_colab = lista_colab
+
+    def getTask(self):
+        return [self.nome, self.descricao, self.status, self.lista_colab]
