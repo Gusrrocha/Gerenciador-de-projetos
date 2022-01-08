@@ -14,6 +14,9 @@ class MainWindow(QMainWindow):
         self.load()
 
     def load(self):
+        for i in reversed(range(self.painel_pj.count())):
+            self.painel_pj.itemAt(i).widget().deleteLater()
+
         l = projeto_dao.selectAll()
         for p in l:
             self.painel_pj.addWidget(CardProject(p, self))
@@ -23,7 +26,7 @@ class MainWindow(QMainWindow):
 
     def show_project(self):
         self.tabela.setCurrentIndex(0)
-
+        self.load()
     def novo_projeto(self, projeto=None):
         self.tabela.insertWidget(2, AddProject(self, projeto))
         self.tabela.setCurrentIndex(2)

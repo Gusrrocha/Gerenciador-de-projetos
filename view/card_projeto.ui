@@ -36,6 +36,9 @@
           <property name="enabled">
            <bool>true</bool>
           </property>
+          <property name="styleSheet">
+           <string notr="true">.QFrame::hover {background-color: rgb(255, 255, 255);}</string>
+          </property>
           <property name="text">
            <string>Nome:</string>
           </property>
@@ -44,7 +47,7 @@
         <item>
          <widget class="QLabel" name="descricao">
           <property name="styleSheet">
-           <string notr="true"/>
+           <string notr="true">.QFrame::hover {background-color: rgb(255, 255, 255);}</string>
           </property>
           <property name="text">
            <string>Descrição</string>
@@ -61,6 +64,9 @@
           </property>
           <property name="cursor">
            <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">.QFrame::hover {background-color: rgb(255, 255, 255);}</string>
           </property>
           <property name="text">
            <string/>
@@ -90,6 +96,9 @@
           </property>
           <property name="cursor">
            <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">.QFrame::hover {background-color: rgb(255, 255, 255);}</string>
           </property>
           <property name="text">
            <string/>
