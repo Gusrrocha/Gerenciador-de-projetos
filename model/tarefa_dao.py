@@ -24,3 +24,6 @@ def edit_task(tarefa):
 def delete_task(id):
     pass
 
+def selectAll():
+    pass
+
