@@ -37,7 +37,7 @@
            <bool>true</bool>
           </property>
           <property name="styleSheet">
-           <string notr="true">.QFrame::hover {background-color: rgb(255, 255, 255);}</string>
+           <string notr="true"/>
           </property>
           <property name="text">
            <string>Nome:</string>
@@ -47,7 +47,7 @@
         <item>
          <widget class="QLabel" name="descricao">
           <property name="styleSheet">
-           <string notr="true">.QFrame::hover {background-color: rgb(255, 255, 255);}</string>
+           <string notr="true"/>
           </property>
           <property name="text">
            <string>Descrição</string>
@@ -66,7 +66,7 @@
            <cursorShape>PointingHandCursor</cursorShape>
           </property>
           <property name="styleSheet">
-           <string notr="true">.QFrame::hover {background-color: rgb(255, 255, 255);}</string>
+           <string notr="true"/>
           </property>
           <property name="text">
            <string/>
@@ -98,7 +98,7 @@
            <cursorShape>PointingHandCursor</cursorShape>
           </property>
           <property name="styleSheet">
-           <string notr="true">.QFrame::hover {background-color: rgb(255, 255, 255);}</string>
+           <string notr="true"/>
           </property>
           <property name="text">
            <string/>

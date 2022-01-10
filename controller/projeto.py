@@ -4,6 +4,7 @@ from model.pj_dao import *
 import model.colab_dao as colab_dao
 import model.tarefa_dao as tarefa_dao
 from controller.card_tarefa import CardTarefas
+from model.tarefa import Tarefas
 class AddProject(QWidget):
     def __init__(self, mainWindow, projeto=None):
         super().__init__()
@@ -18,7 +19,7 @@ class AddProject(QWidget):
         if self.projeto != False:
             self.nome_pj.setText(self.projeto.nome)
             self.desc_pj.setText(self.projeto.descricao)
-            self.load_tasks()
+            self.load_tasks(projeto)
         self.colab_add.clicked.connect(self.addColab)
         self.salvar_pj_btn.clicked.connect(self.salvar_pj)
         self.colab_discard.clicked.connect(self.removeColab)
@@ -32,10 +33,12 @@ class AddProject(QWidget):
             t_l.append(colaborador.nome)
         self.colab_comboBox.addItems(t_l)
 
-    def load_tasks(self):
-        l_t = tarefa_dao.selectAll()
-        for t in l_t:
-            self.painel_tarefas.addWidget(CardTarefas(t, self))
+    def load_tasks(self, projeto):
+        id_proj = projeto.id
+        l_t = tarefa_dao.selectAll(id_proj)
+        if len(l_t) >= 1:
+            for t in l_t:
+                self.painel_tarefas.addWidget(CardTarefas(t, self))
 
     def addColab(self):
         i = self.colab_comboBox.currentIndex()
@@ -46,7 +49,18 @@ class AddProject(QWidget):
             self.label_qt_colab.setText(f'Colaboradores alocados: {len(self.lista_added_colabs)}')
 
     def addTask(self):
-        pass
+        nome = self.nome_task.text()
+        desc = self.desc_task.text()
+        if (self.done_btn.clicked):
+            status = 1
+        elif (self.pending_btn.clicked):
+            status = 0
+        colab = len(self.lista_added_colabs)
+        id_proj = self.projeto.id
+
+        tarefa_dao.add_task(Tarefas(None, nome, desc, status, id_proj, colab))
+        self.mainWindow.show_project()
+
     def isExist(self, colab):
         for c in self.lista_added_colabs:
             if c.id == colab.id:
@@ -65,9 +79,12 @@ class AddProject(QWidget):
         desc = self.desc_pj.text()
         if nome != '' and desc != '':
             if self.projeto == False:  # novo projeto
-                add_pj(Projetos(None, nome, desc))
+                    add_pj(Projetos(None, nome, desc))
             else:
                 pass
+            
+
+
 
         # vai para a janela principal
         self.mainWindow.show_project()

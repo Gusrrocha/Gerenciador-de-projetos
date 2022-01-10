@@ -59,9 +59,16 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_4">
       <item>
-       <widget class="QLineEdit" name="add_task">
+       <widget class="QLineEdit" name="nome_task">
         <property name="placeholderText">
          <string>Adicione nova tarefa no topo da lista</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="desc_task">
+        <property name="placeholderText">
+         <string>Descrição da sua tarefa</string>
         </property>
        </widget>
       </item>
@@ -192,7 +199,7 @@
            <x>0</x>
            <y>0</y>
            <width>802</width>
-           <height>278</height>
+           <height>252</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_5">

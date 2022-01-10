@@ -6,13 +6,59 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>710</width>
+    <height>162</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QFrame" name="frame">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="nome_t">
+          <property name="text">
+           <string>Nome</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="desc_t">
+          <property name="text">
+           <string>Descrição</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="colab_t">
+          <property name="text">
+           <string>Colaboradores</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="status">
+          <property name="text">
+           <string>Status</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>
