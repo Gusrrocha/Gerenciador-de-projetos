@@ -20,6 +20,7 @@ class AddProject(QWidget):
             self.nome_pj.setText(self.projeto.nome)
             self.desc_pj.setText(self.projeto.descricao)
             self.load_tasks(projeto)
+            self.add_task_btn.clicked.connect(self.addTask)
         self.colab_add.clicked.connect(self.addColab)
         self.salvar_pj_btn.clicked.connect(self.salvar_pj)
         self.colab_discard.clicked.connect(self.removeColab)
@@ -49,17 +50,23 @@ class AddProject(QWidget):
             self.label_qt_colab.setText(f'Colaboradores alocados: {len(self.lista_added_colabs)}')
 
     def addTask(self):
-        nome = self.nome_task.text()
-        desc = self.desc_task.text()
-        if (self.done_btn.clicked):
-            status = 1
-        elif (self.pending_btn.clicked):
+        try:
+            nome = self.nome_task.text()
+            desc = self.desc_task.text()
             status = 0
-        colab = len(self.lista_added_colabs)
-        id_proj = self.projeto.id
+            if (self.done_btn.clicked):
+                status = 1
+            if (self.pending_btn.clicked):
+                status = 0
+            colab = len(self.lista_added_colabs)
+            id_proj = self.projeto.id
 
-        tarefa_dao.add_task(Tarefas(None, nome, desc, status, id_proj, colab))
-        self.mainWindow.show_project()
+            tarefa_dao.add_task(Tarefas(None, nome, desc, status, id_proj, colab))
+            self.mainWindow.show_project()
+        except Exception as e:
+            QMessageBox.about(self, "Erro", "Primeiro tem que criar o projeto!")
+
+        
 
     def isExist(self, colab):
         for c in self.lista_added_colabs:
