@@ -10,11 +10,11 @@ class AddProject(QWidget):
         super().__init__()
         uic.loadUi('view/projeto.ui', self)
 
-        
         self.lista_colabs = []
         self.lista_added_colabs = []
         self.projeto = projeto
         self.mainWindow = mainWindow
+        
         self.load_colabs()
         if self.projeto != False:
             self.nome_pj.setText(self.projeto.nome)
@@ -36,9 +36,9 @@ class AddProject(QWidget):
     def load_tasks(self, projeto):
         id_proj = projeto.id
         l_t = tarefa_dao.selectAll(id_proj)
-        if len(l_t) >= 1:
-            for t in l_t:
-                self.painel_tarefas.addWidget(CardTarefas(t, self))
+        
+        for t in l_t:
+            self.painel_tarefas.addWidget(CardTarefas(t))
 
     def addColab(self):
         i = self.colab_comboBox.currentIndex()

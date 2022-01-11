@@ -8,7 +8,7 @@ def add_task(tarefa):
     try:
         conn = dbase.connect()
         cursor = conn.cursor()
-        sql = """INSERT INTO Tarefas (nome, descricao, status, colab, id_projeto)
+        sql = """INSERT INTO Tarefas (nome, descricao, status, id_projeto, colab)
               VALUES (?, ?, ?, ?, ?);"""
         cursor.execute(sql, tarefa.getTask())
         conn.commit()
@@ -33,7 +33,7 @@ def selectAll(id_proj):
         cursor.execute(sql, [id_proj])
         result = cursor.fetchall()
         for c in result:
-            nova_tarefa = Tarefas(c[0],c[1],c[2],c[3],c[4],c[5],c[6])
+            nova_tarefa = Tarefas(c[0],c[1],c[2],c[3],c[4],c[5])
             lista_t.append(nova_tarefa)
     except Exception as e:
         print(e)

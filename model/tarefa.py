@@ -4,8 +4,9 @@ class Tarefas():
         self.nome = nome
         self.descricao = descricao
         self.status = status
-        self.lista_colab = lista_colab
         self.id_projeto = id_projeto
+        self.lista_colab = lista_colab
+        
 
     def getTask(self):
-        return [self.nome, self.descricao, self.status, self.lista_colab, self.id_projeto]
+        return [self.nome, self.descricao, self.status, self.id_projeto, self.lista_colab]
