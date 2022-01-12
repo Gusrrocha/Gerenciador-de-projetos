@@ -14,7 +14,8 @@ class ColabPage(QWidget):
         self.painel.verticalHeader().setVisible(False)
         self.painel.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch) 
         self.painel.horizontalHeader().setSectionResizeMode(0, QHeaderView.ResizeToContents)
-
+        self.cancel_edit.clicked.connect(self.cancel_edicao)
+        self.cancel_edit.hide()
         self.load()
         self.painel.clicked.connect(self.click_linha)
 
@@ -25,7 +26,9 @@ class ColabPage(QWidget):
         self.painel.setRowCount(0)
         for c in self.lista_colabs:
             self.add_colab(c)
-    
+    def cancel_edicao(self):
+        self.clear()
+        self.cancel_edit.hide()
     def salvar(self):
         nome = self.nome.text()
         email = self.email.text()
@@ -40,7 +43,7 @@ class ColabPage(QWidget):
             colab_dao.add(novo_colab)
 
         self.load()
-
+        
     def excluir(self):
         if self.colab_atual != None:
             colab_dao.delete(self.colab_atual.id)
@@ -68,3 +71,4 @@ class ColabPage(QWidget):
         self.colab_atual = self.lista_colabs[selected_row]
         self.nome.setText(self.colab_atual.nome)
         self.email.setText(self.colab_atual.email)
+        self.cancel_edit.show()

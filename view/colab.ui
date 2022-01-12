@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>820</width>
-    <height>580</height>
+    <height>635</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -115,6 +115,13 @@
            </size>
           </property>
          </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="cancel_edit">
+          <property name="text">
+           <string>Cancelar Edição</string>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="QPushButton" name="excluir_btn">
