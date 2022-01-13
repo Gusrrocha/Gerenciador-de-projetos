@@ -7,7 +7,7 @@ class CardTarefas(QWidget):
         self.tarefa = tarefa
         self.nome_t.setText(tarefa.nome)
         self.desc_t.setText(tarefa.descricao)
-        self.colab_t.setText(str(tarefa.id_projeto))
+        self.colab_t.setText(str(tarefa.lista_colab))
         if self.tarefa.status == 1:
             self.status.setText('Concluída!')
         elif self.tarefa.status == 0:

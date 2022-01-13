@@ -10,6 +10,7 @@ class AddProject(QWidget):
         super().__init__()
         uic.loadUi('view/projeto.ui', self)
 
+        self.lista_task = []
         self.lista_colabs = []
         self.lista_added_colabs = []
         self.projeto = projeto
@@ -19,7 +20,7 @@ class AddProject(QWidget):
         if self.projeto != False:
             self.nome_pj.setText(self.projeto.nome)
             self.desc_pj.setText(self.projeto.descricao)
-            self.load_tasks(projeto)
+            self.load_tasks(self.projeto)
         self.colab_add.clicked.connect(self.addColab)
         self.salvar_pj_btn.clicked.connect(self.salvar_pj)
         self.colab_discard.clicked.connect(self.removeColab)
@@ -36,10 +37,17 @@ class AddProject(QWidget):
     def load_tasks(self, projeto):
         for i in reversed(range(self.painel_tarefas.count())):
             self.painel_tarefas.itemAt(i).widget().deleteLater()
-        id_proj = projeto.id
-        l_t = tarefa_dao.selectAll(id_proj)
+
+        l = self.projeto.lista_tasks
+        for t in l:
+            self.painel_tarefas.addWidget(CardTarefas(t))
         
-        for t in l_t:
+    def load_t(self):
+        for i in reversed(range(self.painel_tarefas.count())):
+            self.painel_tarefas.itemAt(i).widget().deleteLater()
+
+        l = self.lista_task
+        for t in l:
             self.painel_tarefas.addWidget(CardTarefas(t))
 
     def addColab(self):
@@ -55,13 +63,14 @@ class AddProject(QWidget):
         desc = self.desc_task.text()
         if (self.done_btn.isChecked()):
             status = 1
-        elif (self.pending_btn.isChecked):
+        elif (self.pending_btn.isChecked()):
             status = 0
         colab = len(self.lista_added_colabs)
-        id_proj = self.projeto.id
 
-        tarefa_dao.add_task(Tarefas(None, nome, desc, status, id_proj, colab))
-        self.load_tasks(self.projeto)
+        tarefa_dao.add_task(Tarefas(None, nome, desc, status, colab))
+        self.lista_task.append(Tarefas(None, nome, desc, status, colab))
+        self.load_t()
+        
 
     def isExist(self, colab):
         for c in self.lista_added_colabs:
@@ -79,13 +88,15 @@ class AddProject(QWidget):
     def salvar_pj(self):
         nome = self.nome_pj.text()
         desc = self.desc_pj.text()
+        task = self.lista_task
         if nome != '' and desc != '':
             if self.projeto == False:  # novo projeto
-                    add_pj(Projetos(None, nome, desc))
+                    novo = Projetos(None, nome, desc, task)
+                    add_pj(novo)
             else:
                 pass
             
-
+        
 
 
         # vai para a janela principal
