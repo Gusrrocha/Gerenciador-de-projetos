@@ -1,3 +1,4 @@
+
 from controller.card_projeto import CardProject
 from qt_core import *
 from model.pj_dao import *
@@ -17,6 +18,8 @@ class AddProject(QWidget):
         self.mainWindow = mainWindow
         
         self.load_colabs()
+        
+        
         if self.projeto != False:
             self.nome_pj.setText(self.projeto.nome)
             self.desc_pj.setText(self.projeto.descricao)
@@ -25,8 +28,8 @@ class AddProject(QWidget):
         self.salvar_pj_btn.clicked.connect(self.salvar_pj)
         self.colab_discard.clicked.connect(self.removeColab)
         self.add_task_btn.clicked.connect(self.addTask)
+                
         
-
     def load_colabs(self):
         t_l = []
         self.lista_colabs = colab_dao.selectAll()
@@ -59,17 +62,29 @@ class AddProject(QWidget):
             self.label_qt_colab.setText(f'Colaboradores alocados: {len(self.lista_added_colabs)}')
 
     def addTask(self):
-        nome = self.nome_task.text()
-        desc = self.desc_task.text()
-        if (self.done_btn.isChecked()):
-            status = 1
-        elif (self.pending_btn.isChecked()):
-            status = 0
-        colab = len(self.lista_added_colabs)
-
-        tarefa_dao.add_task(Tarefas(None, nome, desc, status, colab))
-        self.lista_task.append(Tarefas(None, nome, desc, status, colab))
-        self.load_t()
+        try:
+            nome = self.nome_task.text()
+            desc = self.desc_task.text()
+            if (self.done_btn.isChecked()):
+                status = 1
+            elif (self.pending_btn.isChecked()):
+                status = 0
+            colab = len(self.lista_added_colabs)
+            if nome != '' and desc != '' and colab > 0:
+                if self.projeto == False:
+                    tarefa_dao.add_task(Tarefas(None, nome, desc, status, colab))
+                    self.lista_task.append(Tarefas(None, nome, desc, status, colab))
+                    self.load_t()
+                    self.clear()
+            else:
+                QMessageBox.about(self, "Erro", "Preencha todas as colunas!")
+        except Exception as e:
+            QMessageBox.about(self, "Erro", "Preencha todas as colunas!")
+            print(e)
+        
+            
+            
+            
         
 
     def isExist(self, colab):
@@ -77,7 +92,19 @@ class AddProject(QWidget):
             if c.id == colab.id:
                 return True
         return False
+    
+    def clear(self):
+        self.nome_task.clear()
+        self.desc_task.clear()
+        self.lista_added_colabs = []
+        self.colab_added_comboBox.clear()
+        self.label_qt_colab.setText(f'Colaboradores alocados: 0')
         
+        self.done_btn.setChecked(False)
+        self.pending_btn.setChecked(False)
+        
+
+
     def removeColab(self):
         i = self.colab_added_comboBox.currentIndex()
         if i >= 0:
