@@ -71,7 +71,6 @@ class AddProject(QWidget):
                 status = 0
             colab = len(self.lista_added_colabs)
             if nome != '' and desc != '' and colab > 0:
-                if self.projeto == False:
                     tarefa_dao.add_task(Tarefas(None, nome, desc, status, colab))
                     self.lista_task.append(Tarefas(None, nome, desc, status, colab))
                     self.load_t()
